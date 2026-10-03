@@ -22,16 +22,15 @@ export function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
         {/* Security & Isolation Fallback Warning Banner */}
         {!isCrossOriginIsolated && (
-          <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-800/50 text-amber-200 flex items-start gap-3 shadow-lg">
-            <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-            <div className="text-xs leading-relaxed">
-              <strong className="font-semibold block text-sm text-amber-300 mb-0.5">
-                Single-Threaded Fallback Active
-              </strong>
-              `window.crossOriginIsolated` is not detected. Multi-threaded WebAssembly requires
-              COOP (<code className="bg-amber-900/50 px-1 py-0.5 rounded">same-origin</code>) and COEP (
-              <code className="bg-amber-900/50 px-1 py-0.5 rounded">require-corp</code>) headers. The app
-              will continue using single-threaded <code className="text-amber-300">@ffmpeg/core</code>.
+          <div className="p-4 rounded-2xl bg-amber-950/30 border border-amber-850/60 text-amber-200/90 flex items-start justify-between gap-3 shadow-lg">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+              <div className="text-xs leading-relaxed">
+                <strong className="font-semibold block text-sm text-amber-300 mb-0.5">
+                  Single-Threaded Mode Active
+                </strong>
+                Cross-origin isolation (`SharedArrayBuffer`) is waiting on CDN header propagation. Video compression still works completely client-side via <code className="text-amber-300 font-mono">@ffmpeg/core</code>.
+              </div>
             </div>
           </div>
         )}
